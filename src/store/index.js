@@ -1,11 +1,9 @@
 import { createStore } from 'vuex'
-import { getData } from "./getData/main"
+import getData from "../store/getData/main.js"
 
 const store = createStore({
   modules: {
-    getDataMoudle: {
-      getData
-    }
+    getDataModule: getData
   },
 })
 
