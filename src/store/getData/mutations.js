@@ -29,7 +29,7 @@ const mutations = {
                         break;
 
                     case "flags":
-                        result.svg = element["flags"]?.["svg"];
+                        result.png = element["flags"]?.["png"];
                         result.alt = element["flags"]?.["alt"];
                         break;
                 }
