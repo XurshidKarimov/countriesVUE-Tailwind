@@ -2,7 +2,10 @@
   <div class="container flex flex-col gap-y-5 max-w-7xl my-0 mx-auto py-10 px-5">
 
     <div class="control-panel flex">
-      <button class="p-[5px] rounded-[10px] shadow-[0_0_2px_1px_rgba(100,100,100,.7)] transition linear duration-300 cursor-pointer dark:text-white" @click="switchTheme()">Dark Mode</button>
+      <button class="p-[5px] rounded-[10px] shadow-[0_0_2px_1px_rgba(100,100,100,.7)] transition linear duration-300 cursor-pointer dark:text-white" @click="switchTheme($event)">
+        <span v-if="theme">Dark Mode</span>
+        <span v-else>Light Mode</span>
+      </button>
     </div>
 
     <ul class="grid grid-cols-grid-list-column gap-10">
@@ -27,11 +30,17 @@ import { mapGetters } from 'vuex';
 
 
 export default{
+  data(){
+    return{
+      theme: true,
+    }
+  },
   methods: {
    ...mapActions('getDataModule', ['fetchData']),
    switchTheme(){
     let [html] = document.getElementsByTagName("html");
     html.classList.toggle("dark");
+    this.theme = !this.theme;
   }
   },
   computed: {
