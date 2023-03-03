@@ -1,7 +1,8 @@
 const state = {
-    state(){
+    state() {
         return {
             arr: null,
+            singleData: null,
         }
     }
 }
